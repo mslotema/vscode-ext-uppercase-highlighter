@@ -1,0 +1,80 @@
+{
+  "name": "uppercase-highlighter",
+  "displayName": "Uppercase Highlighter",
+  "description": "A reading aid for people having trouble quickly differentiating uppercase characters from lowercase, by highlighting uppercase characters.",
+  "icon": "icon/uppercase-icon.png",
+  "version": "0.8.70",
+  "license": "SEE LICENSE IN LICENSE",
+  "publisher": "mslotema",
+  "author": {
+    "name": "Melle Slotema"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mslotema/vscode-uppercase-highlighter"
+  },
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "keywords": [
+    "highlighter",
+    "reading help",
+    "reading aid",
+    "dyslexia"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Uppercase Highlighter reading aid settings",
+      "properties": {
+        "uppercaseHighlighter.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enabled"
+        },
+        "uppercaseHighlighter.underlined": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enabled"
+        },
+        "uppercaseHighlighter.bolder": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enabled"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "uppercase-highlighter.toggle",
+        "title": "Uppercase Highlighter (toggle)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.99.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
